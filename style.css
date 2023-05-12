@@ -224,7 +224,7 @@ button:hover {
 /* CARDS SECTION */
 .cards {
   display: grid;
-  grid-template-columns: repeat(3, 33.33%);
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .card {
@@ -331,14 +331,6 @@ h4 {
 
   /* HERO SECTION */
 
-  .desktop {
-    display: none;
-  }
-
-  .mobile {
-    display: block;
-  }
-
   .image-wrapper, .main-text {
     margin-bottom: 20px;
   }
@@ -354,18 +346,7 @@ h4 {
   button {
     margin-top: 20px;
   }
-}
 
-@media (max-width: 375px) {
-
-  .container {
-    padding: 5px 10px;
-  }
-
-  /* HEADER SECTION*/
-  .header {
-    margin-bottom: 20px;
-  }
   /* HERO SECTION */
   .hero {
     display: flex;
@@ -384,9 +365,78 @@ h4 {
 
   /* CARDS SECTION*/
   .cards {
+    column-gap: 10px;
+  }
+
+  .card {
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+  }
+
+  .post-number {
+    margin-top: 10px;
+  }
+
+  .blog-post-info {
+    display: flex; 
+    flex-direction: column;
+    margin-left: 0;
+    margin-bottom: 30px;
+    padding-right: 0;
+  }
+
+  h4 {
+    align-self: start;
+    margin: 10px 0;
+  }
+}
+
+@media (max-width: 375px) {
+
+  .container {
+    padding: 5px 10px;
+  }
+
+  /* HEADER SECTION*/
+  .header {
+    margin-bottom: 20px;
+  }
+
+  /* HERO SECTION */
+  .hero {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile {
+    display: block;
+  }
+
+  .desktop {
+    display: none;
+  }
+
+  .left-column {
+    display: block;
+    margin-right: 0;
+    margin-bottom: 40px;
+  }
+
+  .right-column {
+    height: 400px;
+  }
+
+  /* CARDS SECTION*/
+  .cards {
     display: flex;
     flex-direction: column;
     gap: 20px;
+  }
+
+  .card {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    column-gap: 10px;
   }
 
   .blog-post-info {
