@@ -147,6 +147,10 @@ p {
   grid-row: 1;
 }
 
+.mobile {
+  display: none;
+}
+
 .main-text {
   grid-column: 1 / 2;
   grid-row: 2;
@@ -276,6 +280,10 @@ h4 {
 /* RESPONSIVENESS */
 
 @media only screen and (max-width: 768px) {
+  .container {
+    padding: 0 25px;
+  }
+  /* HAMBURGER MENU */
   .nav-menu {
       position: fixed;
       right: -100%;
@@ -319,11 +327,81 @@ h4 {
   .hamburger.active .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
   }
+  
 
+  /* HERO SECTION */
+
+  .desktop {
+    display: none;
+  }
+
+  .mobile {
+    display: block;
+  }
+
+  .image-wrapper, .main-text {
+    margin-bottom: 20px;
+  }
+
+  .main-text {
+    font-size: 40px;
+  }
+
+  .secondary-text-with-button {
+    letter-spacing: .03rem;
+  }
+
+  button {
+    margin-top: 20px;
+  }
 }
 
 @media (max-width: 375px) {
+
   .container {
-    width: var(--mobile);
+    padding: 5px 10px;
+  }
+
+  /* HEADER SECTION*/
+  .header {
+    margin-bottom: 20px;
+  }
+  /* HERO SECTION */
+  .hero {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .left-column {
+    display: block;
+    margin-right: 0;
+    margin-bottom: 40px;
+  }
+
+  .right-column {
+    height: 400px;
+  }
+
+  /* CARDS SECTION*/
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .blog-post-info {
+    padding-right: 10px;
+  }
+
+  .post-description {
+    line-height: 1.2;
+  }
+
+  .post-number {
+    font-size: 25px;
+  }
+
+  h4 {
+    font-size: 14px;
   }
 }
