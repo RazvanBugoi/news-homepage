@@ -89,6 +89,7 @@ table {
 body {
   font-family: Inter-Regular, sans-serif;
   width: 100vw;
+  background-color: #eee8e8;
 }
 
 
@@ -282,6 +283,30 @@ h4 {
   color: var(--dark-grayish-blue);
   line-height: 1.5;
   align-self: end;
+}
+
+/* FOOTER */
+.footer {
+  margin-top: 80px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.icons > a > i {
+  color: var(--very-dark-blue);
+}
+
+.icons > a > i:hover {
+  color: hsla(240, 100%, 5%, 0.514);
 }
 
 /* HAMBURGER MENU */
