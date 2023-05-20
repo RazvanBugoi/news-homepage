@@ -260,7 +260,7 @@ button:hover {
   width: 100%
 }
 
-.blog-post-info {
+.content {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -275,7 +275,7 @@ button:hover {
   font-weight: bold;
 }
 
-h4 {
+.post-title {
   font-family: Inter-ExtraBold;
 }
 
@@ -443,8 +443,8 @@ h4 {
     margin-bottom: 40px;
   }
 
-  .right-column {
-    height: 400px;
+  .right-column > div > h3 {
+    margin-top: 10px;
   }
 
 }
