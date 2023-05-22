@@ -20,29 +20,27 @@ function closeMenu() {
 }
 
 
-// Data to populate card contents
+// Function to create an aside section with populated content
+function createAside(sidebar) {
+    const aside = document.createElement("aside");
+    aside.classList.add("right-column");
 
-// Define an array of card data
-const cardData = [
-    {
-        img: "./assets/images/image-retro-pcs.jpg",
-        number: "01",
-        title: "Reviving Retro PCs",
-        content: "What happens when old PCs are given modern upgrades?",
-    },
-    {
-        img: "./assets/images/image-top-laptops.jpg",
-        number: "02",
-        title: "Top 10 Laptops of 2022",
-        content: "Our best picks for various needs and budgets.",
-    },
-    {
-        img: "./assets/images/image-gaming-growth.jpg",
-        number: "03",
-        title: "The Growth of Gaming",
-        content: "How the pandemic has sparked fresh opportunities.",
-    }
-];
+    const contentElement = document.createElement("div");
+    contentElement.classList.add("article-wrapper");
+
+    const titleElement = document.createElement("h3");
+    titleElement.classList.add("article-title");
+    titleElement.textContent = sidebar.title;
+    contentElement.appendChild(titleElement);
+
+    const descriptionElement = document.createElement("p");
+    descriptionElement.classList.add("article-description");
+    descriptionElement.textContent = sidebar.description;
+    contentElement.appendChild(descriptionElement);
+
+    return contentElement;
+}
+
 
 // Function to create a card component with populated content
 function createCard(card) {
@@ -78,9 +76,23 @@ function createCard(card) {
 
 // Get the card section element
 const cardSection = document.querySelector(".cards");
+const asideSection = document.querySelector(".right-column");
 
-// Populate the cards dynamically
-cardData.forEach((card) => {
-    const cardElement = createCard(card);
-    cardSection.appendChild(cardElement);
-})
+// Fetch and parse the JSON data
+fetch("news-2023-05-16.json")
+    .then((response) => response.json())
+    .then((data) => {
+        data.sidebar.forEach((content) => {
+            const asideElement = createAside(content);
+            asideSection.appendChild(asideElement);
+        })
+
+        // Populate the cards dynamically
+        data.cards.forEach((card) => {
+            const cardElement = createCard(card);
+            cardSection.appendChild(cardElement);
+        });
+    })
+    .catch((error) => {
+        console.log("Error loading card data:", error);
+    })
